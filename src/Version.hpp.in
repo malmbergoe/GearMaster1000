@@ -1,0 +1,3 @@
+//the configured options and settings for GearMaster-1000
+#define APPLICATION_VERSION_MAJOR @GearMaster_VERSION_MAJOR@
+#define APPLICATION_VERSION_MINOR @GearMaster_VERSION_MINOR@
