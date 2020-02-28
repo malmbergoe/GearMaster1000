@@ -8,7 +8,7 @@ class Inventory {
   
 public:
   void createItem();
-  void delevteItem();
+  void deleteItem();
   void listAllItems();
   void examineItem();
   void modifyItem();
