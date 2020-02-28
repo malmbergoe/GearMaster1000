@@ -1,5 +1,5 @@
-#include "Menu.hpp"
-#include "UserOption.hpp"
+#include "Menu.h"
+#include "UserOption.h"
 
 class MainMenu : public Menu<UserOption>{
 public:

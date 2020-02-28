@@ -1,6 +1,6 @@
 #include <iostream>
-#include "src/Version.hpp"
-#include "GearMasterMain.hpp"
+#include "src/Version.h"
+#include "GearMasterMain.h"
 
 int main (int argc, char **argv) {
   GearMasterMain mainApp;

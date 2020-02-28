@@ -1,4 +1,4 @@
-#include "GearMasterMain.hpp"
+#include "GearMasterMain.h"
 #include <iostream>
 
 GearMasterMain::GearMasterMain() {

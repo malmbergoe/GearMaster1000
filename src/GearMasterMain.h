@@ -1,7 +1,7 @@
 #include <string>
-#include "Inventory.hpp"
+#include "Inventory.h"
 
-#include "userinterface/MainMenu.hpp"
+#include "userinterface/MainMenu.h"
 
 class GearMasterMain {
 public:

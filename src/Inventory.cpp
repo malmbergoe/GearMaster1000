@@ -1,7 +1,7 @@
-#include "Inventory.hpp"
+#include "Inventory.h"
 #include <iostream>
 #include <sstream>
-#include "userinterface/EditOption.hpp"
+#include "userinterface/EditOption.h"
 
 
 void Inventory::createItem() {
