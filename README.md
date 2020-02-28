@@ -1,3 +1,14 @@
+## GearMaster 1000
+
+### How to build
+This project uses CMake to build. Assuming the project is clean (i.e. does not have a build folder setup) perform the following actions:
+
+- create a build output directory 'mkdir <build>'
+- navigate to the build directory 'cd <build>'
+- invoke CMake to generate a makefile 'cmake --/<build>'
+- invoke CMake to build the project 'cmake --build .'
+
+
 GearMaster - 1000
 
 
