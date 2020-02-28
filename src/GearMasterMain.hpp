@@ -1,4 +1,7 @@
 #include <string>
+#include "Inventory.hpp"
+
+#include "userinterface/MainMenu.hpp"
 
 class GearMasterMain {
 public:
@@ -7,20 +10,9 @@ public:
 
 private:
   bool continueExecution;
+  Inventory inventory;
+  MainMenu mainMenu;
 
-  void printStartMenu();
   void printLine(std::string input);
-  void clearScreen();
-  bool validateInput(std::string input);
-  
-  enum UserOption {
-    LIST_ITEMS = 1,
-    CREATE_NEW_ITEM,
-    EXAMINE_ITEM,
-    DELETE_ITEM,
-    EXIT,
-    INVALID};
-  
-  UserOption getInputFromUser();
   bool handleUserInput(UserOption choice);
 };
