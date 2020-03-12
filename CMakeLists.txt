@@ -7,7 +7,13 @@ project(GearMaster VERSION 0.1)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+option(PACKAGE_TEST "Build unit tests" ON)
+if(PACKAGE_TEST)
+  enable_testing()
+  include(GoogleTest)
+  add_subdirectory(test)
+endif()
+
 add_subdirectory(src)
-add_subdirectory(test)
-add_subdirectory(external/googletest)
+
 
