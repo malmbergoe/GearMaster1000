@@ -3,6 +3,9 @@ set(BINARY ${CMAKE_PROJECT_NAME})
 configure_file("${PROJECT_SOURCE_DIR}/src/Version.h.in"
                "${PROJECT_BINARY_DIR}/src/Version.h")
 
+include_directories("${PROJECT_SOURCE_DIR}/src")
+include_directories("${PROJECT_BINARY_DIR}/src")
+
 set(HEADERS
     ${PROJECT_SOURCE_DIR}/src/GearMasterMain.h
     ${PROJECT_SOURCE_DIR}/src/Inventory.h

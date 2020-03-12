@@ -1,5 +1,5 @@
 #include <iostream>
-//#include "src/Version.h"
+#include "Version.h"
 #include "GearMasterMain.h"
 
 int main (int argc, char **argv) {
