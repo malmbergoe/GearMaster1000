@@ -1,3 +1,5 @@
+#ifndef GEARMASTER_MENU_CLASS
+#define GEARMASTER_MENU_CLASS
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -34,3 +36,4 @@ class Menu {
       return output;
     };
 };
+#endif

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include "userinterface/EditOption.h"
+#include "Item.h"
 
 
 void Inventory::createItem() {

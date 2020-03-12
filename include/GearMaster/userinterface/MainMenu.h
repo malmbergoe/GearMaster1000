@@ -1,5 +1,7 @@
+#ifndef GEARMASTER_MAINMENU_CLASS
+#define GEARMASTER_MAINMENU_CLASS
 #include "Menu.h"
-#include "UserOption.h"
+#include "userinterface/UserOption.h"
 
 class MainMenu : public Menu<UserOption>{
 public:
@@ -16,3 +18,5 @@ public:
 
   UserOption interactWithUser();
 };
+
+#endif

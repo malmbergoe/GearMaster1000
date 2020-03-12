@@ -1,4 +1,5 @@
-
+#ifndef GEARMASTER_EDITOPTION_ENUM
+#define GEARMASTER_EDITOPTION_ENUM
 enum class EditOption {
   NAME = 1,
   IDENTIFIER,
@@ -8,3 +9,4 @@ enum class EditOption {
   FIRST = NAME,
   LAST = INVALID
 };
+#endif
