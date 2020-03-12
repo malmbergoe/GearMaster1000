@@ -1,12 +1,13 @@
 set(BINARY ${CMAKE_PROJECT_NAME})
 
-#configure_file(${PROJECT_SOURCE_DIR}/src/Version.h.in ${PROJECT_BINARY_DIR}/src/Version.h)
+configure_file("${PROJECT_SOURCE_DIR}/src/Version.h.in"
+               "${PROJECT_BINARY_DIR}/src/Version.h")
 
 set(HEADERS
     ${PROJECT_SOURCE_DIR}/src/GearMasterMain.h
     ${PROJECT_SOURCE_DIR}/src/Inventory.h
     ${PROJECT_SOURCE_DIR}/src/Item.h
-#    ${PROJECT_BINARY_DIR}/src/Version.h
+    ${PROJECT_BINARY_DIR}/src/Version.h
     ${PROJECT_SOURCE_DIR}/src/userinterface/EditOption.h
     ${PROJECT_SOURCE_DIR}/src/userinterface/MainMenu.h
     ${PROJECT_SOURCE_DIR}/src/userinterface/Menu.h
