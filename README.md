@@ -1,39 +1,24 @@
 ## GearMaster 1000
-
-### How to build
-This project uses CMake to build. Assuming the project is clean (i.e. does not have a build folder setup) perform the following actions:
-
-- create a build output directory 'mkdir <build>'
-- navigate to the build directory 'cd <build>'
-- invoke CMake to generate a makefile 'cmake --/<build>'
-- invoke CMake to build the project 'cmake --build .'
-
-
-GearMaster - 1000
-
-
-the overall goal is simply to get started with c++ development.
-so, this application should not do any fancy new challenging things...
+### Introduction
+The overall goal is simply to get started with c++ development.
+So, this application should not do any fancy new challenging things...
 
 
 long term goal:
 a gui application in which one can manage outdoor gear.
 basically a gui accessor to a database.
 
-## DONE
-Mark I:
-Cmake hello world
+### How to build
+This project uses CMake to build. Assuming the project is clean (i.e. does not have a build folder setup) perform the following actions:
 
-Mark II:
-main application provides output.
-main application can be interacted with. i.e.
-- the user is prompted with a set of possible actions.
-- if an action is given, the application acts accordingly
+- create a build output directory `mkdir <build>`
+- navigate to the build directory `cd <build>`
+- invoke CMake to generate a makefile `cmake --/<build>`
+- invoke CMake to build the project `cmake --build .`
 
-## TODO
-Mark III:
-input can be taken from the user, to create in memory objects
 
+
+### Plan Ahead
 Mark IV:
 current configuration can be saved to a file
 
