@@ -1,9 +1,11 @@
 #ifndef GEARMASTER_GEARMASTERMAIN_CLASS
 #define GEARMASTER_GEARMASTERMAIN_CLASS
 #include <string>
-#include "Inventory.h"
+#include <memory>
 
-#include "userinterface/MainMenu.h"
+class Inventory;
+class MainMenu;
+enum class UserOption;
 
 class GearMasterMain {
 public:
@@ -12,8 +14,8 @@ public:
 
 private:
   bool continueExecution;
-  Inventory inventory;
-  MainMenu mainMenu;
+  std::shared_ptr<Inventory> inventory;
+  std::shared_ptr<MainMenu> mainMenu;
 
   void printLine(std::string input);
   bool handleUserInput(UserOption choice);
