@@ -2,7 +2,8 @@
 #include <iostream>
 #include <sstream>
 #include "userinterface/EditOption.h"
-
+#include "Item.h"
+#include <memory>
 
 void Inventory::createItem() {
   std::cout << "creating item, fuck yeah!!" << std::endl;
@@ -15,9 +16,9 @@ void Inventory::createItem() {
   int weight;
   std::stringstream(weightInput) >> weight;
   
-  Item item;
-  item.name = nameInput;
-  item.weight_grams = weight;
+  std::shared_ptr<Item> item = std::shared_ptr<Item>(new Item());
+  item->name = nameInput;
+  item->weight_grams = weight;
   itemContainer[nameInput] = item;
 }
 
@@ -38,9 +39,9 @@ void Inventory::listAllItems() {
     std::cout << "the list is empty you fool" << std::endl;
   } else {
     std::cout << "there are " << itemContainer.size() << " items in the container" << std::endl;
-    std::unordered_map<std::string, Item>::iterator item = itemContainer.begin();
+    std::unordered_map<std::string, std::shared_ptr<Item>>::iterator item = itemContainer.begin();
     while(item != itemContainer.end()) {
-      std::cout << "item name: " << (*item).second.name << ", item weight: " << (*item).second.weight_grams << std::endl;
+      std::cout << "item name: " << (*item).second->name << ", item weight: " << (*item).second->weight_grams << std::endl;
     ++item;
     }
   }
@@ -53,8 +54,8 @@ void Inventory::examineItem() {
   if(itemContainer.find(itemName) == itemContainer.end()){
     std::cout << "Unable to find item " << itemName << ", are you sure it is in the inventory?" << std::endl;
   } else {
-    Item item = itemContainer[itemName];
-    std::cout << "name: " << item.name << ", identifier: " << item.identifier << ", description: " << item.description << ", weight: " << item.weight_grams << std::endl;
+    std::shared_ptr<Item> item = itemContainer[itemName];
+    std::cout << "name: " << item->name << ", identifier: " << item->identifier << ", description: " << item->description << ", weight: " << item->weight_grams << std::endl;
   }
 }
 
@@ -65,8 +66,8 @@ void Inventory::modifyItem() {
   if(itemContainer.find(itemName) == itemContainer.end()){
     std::cout << "Unable to find item " << itemName << ", are you sure it is in the inventory?" << std::endl;
   } else {
-    Item item = itemContainer[itemName];
-    std::cout << "editing " << item.name << std::endl;
+    std::shared_ptr<Item> item = itemContainer[itemName];
+    std::cout << "editing " << item->name << std::endl;
     bool editComplete = false;
     while(!editComplete){
       printEditMenu();

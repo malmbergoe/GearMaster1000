@@ -1,12 +1,17 @@
 #include "GearMasterMain.h"
 #include <iostream>
+#include "Inventory.h"
+#include "userinterface/MainMenu.h"
+
 
 GearMasterMain::GearMasterMain() {
   continueExecution = true;
+  inventory = std::shared_ptr<Inventory>(new Inventory());
+  mainMenu = std::shared_ptr<MainMenu>(new MainMenu());
 };
 
 bool GearMasterMain::run() {
-  UserOption choice = mainMenu.interactWithUser();
+  UserOption choice = mainMenu->interactWithUser();
   continueExecution = handleUserInput(choice);
   return continueExecution;
 };
@@ -16,22 +21,22 @@ bool GearMasterMain::handleUserInput(UserOption choice) {
     switch(choice) {
     case UserOption::LIST_ITEMS:
       printLine("Listing items...");
-      inventory.listAllItems();
+      inventory->listAllItems();
       output = true;
       break;
     case UserOption::CREATE_NEW_ITEM:
       printLine("Creating new item.");
-      inventory.createItem();
+      inventory->createItem();
       output = true;
       break;
     case UserOption::EXAMINE_ITEM:
       printLine("Examine item...");
-      inventory.examineItem();
+      inventory->examineItem();
       output = true;
       break;
     case UserOption::DELETE_ITEM:
       printLine("Delete item...");
-      inventory.deleteItem();
+      inventory->deleteItem();
       output = true;
       break;
     case UserOption::EXIT:

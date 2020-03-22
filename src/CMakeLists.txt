@@ -3,15 +3,19 @@ set(BINARY ${CMAKE_PROJECT_NAME})
 configure_file("${PROJECT_SOURCE_DIR}/src/Version.h.in"
                "${PROJECT_BINARY_DIR}/src/Version.h")
 
+include_directories("${PROJECT_SOURCE_DIR}/src")
+include_directories("${PROJECT_SOURCE_DIR}/include/GearMaster")
+include_directories("${PROJECT_BINARY_DIR}/src")
+
 set(HEADERS
-    ${PROJECT_SOURCE_DIR}/src/GearMasterMain.h
-    ${PROJECT_SOURCE_DIR}/src/Inventory.h
-    ${PROJECT_SOURCE_DIR}/src/Item.h
+    ${PROJECT_SOURCE_DIR}/include/GearMaster/GearMasterMain.h
+    ${PROJECT_SOURCE_DIR}/include/GearMaster/Inventory.h
+    ${PROJECT_SOURCE_DIR}/include/GearMaster/Item.h
     ${PROJECT_BINARY_DIR}/src/Version.h
-    ${PROJECT_SOURCE_DIR}/src/userinterface/EditOption.h
-    ${PROJECT_SOURCE_DIR}/src/userinterface/MainMenu.h
-    ${PROJECT_SOURCE_DIR}/src/userinterface/Menu.h
-    ${PROJECT_SOURCE_DIR}/src/userinterface/UserOption.h
+    ${PROJECT_SOURCE_DIR}/include/GearMaster/userinterface/EditOption.h
+    ${PROJECT_SOURCE_DIR}/include/GearMaster/userinterface/MainMenu.h
+    ${PROJECT_SOURCE_DIR}/include/GearMaster/userinterface/Menu.h
+    ${PROJECT_SOURCE_DIR}/include/GearMaster/userinterface/UserOption.h
 )
 
 set(SOURCES
