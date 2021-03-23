@@ -9,22 +9,29 @@
 #include <QLabel>
 #include <QTextEdit>
 #include <QPixmap>
+#include <QMessageBox>
+
 
 MainWindow::MainWindow (QWidget *parent)
   : QMainWindow(parent) {
 
-  QPixmap newpix("new.png");
+
   QPixmap openpix("open.png");
   QPixmap quitpix("quit.png");
 
-  QAction *newa = new QAction(newpix, "&New", this);
+  QPixmap newpix("new.png");
+  QAction *newAction = new QAction(newpix, "&New", this);
+  newAction->setShortcuts(QKeySequence::New);
+  connect(newAction, &QAction::triggered, this, &MainWindow::createNewDatabase);
+  
+  
   QAction *open = new QAction(openpix, "&Open", this);
   QAction *quit = new QAction(quitpix, "&Quit", this);
   quit->setShortcut(tr("CTRL+Q"));
 
   QMenu *file;
   file = menuBar()->addMenu("&File");
-  file->addAction(newa);
+  file->addAction(newAction);
   file->addAction(open);
   file->addSeparator();
   file->addAction(quit);
@@ -66,4 +73,11 @@ MainWindow::MainWindow (QWidget *parent)
   
   this->setCentralWidget(centralWidget);
 
+}
+
+
+void MainWindow::createNewDatabase(){
+  QMessageBox msgBox;
+  msgBox.setText("Seems like you wanted to create a new database!");
+  msgBox.exec();
 }
