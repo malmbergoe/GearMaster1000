@@ -9,25 +9,36 @@
 #include <QLabel>
 #include <QTextEdit>
 #include <QPixmap>
+#include <QMessageBox>
+#include <stdlib.h>
 
 MainWindow::MainWindow (QWidget *parent)
   : QMainWindow(parent) {
 
-  QPixmap newpix("new.png");
-  QPixmap openpix("open.png");
+
+
   QPixmap quitpix("quit.png");
 
-  QAction *newa = new QAction(newpix, "&New", this);
-  QAction *open = new QAction(openpix, "&Open", this);
-  QAction *quit = new QAction(quitpix, "&Quit", this);
-  quit->setShortcut(tr("CTRL+Q"));
-
+  QPixmap newpix("new.png");
+  QAction *newAction = new QAction(newpix, "&New", this);
+  newAction->setShortcuts(QKeySequence::New);
+  connect(newAction, &QAction::triggered, this, &MainWindow::createNewDatabase);
+  
+  QPixmap openpix("open.png");  
+  QAction *openAction = new QAction(openpix, "&Open", this);
+  openAction->setShortcuts(QKeySequence::Open);
+  connect(openAction, &QAction::triggered, this, &MainWindow::openGearDatabase);
+  
+  QAction *quitAction = new QAction(quitpix, "&Quit", this);
+  quitAction->setShortcut(QKeySequence::Quit);
+  connect(quitAction, &QAction::triggered, this, &MainWindow::exit);
+  
   QMenu *file;
   file = menuBar()->addMenu("&File");
-  file->addAction(newa);
-  file->addAction(open);
+  file->addAction(newAction);
+  file->addAction(openAction);
   file->addSeparator();
-  file->addAction(quit);
+  file->addAction(quitAction);
   
 
   ItemView *itemView = new ItemView(this);
@@ -67,3 +78,19 @@ MainWindow::MainWindow (QWidget *parent)
   this->setCentralWidget(centralWidget);
 
 }
+
+void MainWindow::openGearDatabase(){
+  QMessageBox msgBox;
+  msgBox.setText("Seems like you wanted to open an existing database!");
+  msgBox.exec();
+}
+
+void MainWindow::createNewDatabase(){
+  QMessageBox msgBox;
+  msgBox.setText("Seems like you wanted to create a new database!");
+  msgBox.exec();
+}
+
+void MainWindow::exit(){
+  QApplication::quit();
+ }
