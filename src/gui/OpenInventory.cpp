@@ -6,9 +6,7 @@
 #include "models/Inventory.h"
 
 
-OpenInventory::OpenInventory (QWidget *parent)
-  : QDialog(parent)
-{
+OpenInventory::OpenInventory (QWidget *parent) : QDialog(parent) {
   setWindowTitle(tr("GearMaster - 1000"));
 
   QGridLayout *openInventoryLayout = new QGridLayout();
@@ -38,29 +36,7 @@ OpenInventory::OpenInventory (QWidget *parent)
 
 void OpenInventory::inventoryFilenameSet(){
   Inventory inventory {"sasha"};
-  //  this->inventoryFilename = {.name = "douglas"};
-  //  emit getInventoryFilename(this->inventoryFilename);
   emit getInventoryFilename(inventory);
   emit accept();
 }
 
-/*
-click create new: 
-  dialog to create new file
-when returned from create dialog:
-  store the new inventory file name/path
-  send signal to communicate that there is a new inventory to use (this should trigger a retrieve action elsewhere)
-  send accept signal (this should close the dialog)
-
-click open existing:
-  open dialog to open file
-when returned from open file dialog:
-  store new inventory file name/path
-  send signal to communicate that there is a new inventory to use (this should trigger a retrieve action elsewhere)
-  send accept signal (this should close the dialog)
-
-click the exit button:
-  this should send a reject signal
-
-
-*/

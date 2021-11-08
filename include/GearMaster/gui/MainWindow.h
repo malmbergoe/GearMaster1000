@@ -2,10 +2,8 @@
 #define GEARMASTER_MAINWINDOW_CLASS
 
 #include <QMainWindow>
-#include <QApplication>
-#include <QString>
 
-#include "gui/OpenInventory.h"
+
 #include "models/Inventory.h"
 
 class MainWindow : public QMainWindow {

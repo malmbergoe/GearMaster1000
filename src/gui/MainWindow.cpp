@@ -1,7 +1,9 @@
 #include "gui/MainWindow.h"
 #include "gui/ItemNavigator.h"
 #include "gui/ItemView.h"
+#include "gui/OpenInventory.h"
 
+#include <QApplication>
 #include <QMenu>
 #include <QMenuBar>
 #include <QPushButton>
@@ -12,10 +14,7 @@
 #include <QMessageBox>
 #include <stdlib.h>
 #include <iostream>
-MainWindow::MainWindow (QWidget *parent)
-  : QMainWindow(parent) {
-
-
+MainWindow::MainWindow (QWidget *parent)  : QMainWindow(parent) {
 
   QPixmap quitpix("quit.png");
 
@@ -98,5 +97,5 @@ void MainWindow::createNewDatabase(){
 
 void MainWindow::exit(){
   QApplication::quit();
- }
+}
 
