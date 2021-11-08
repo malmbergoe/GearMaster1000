@@ -13,7 +13,7 @@ include_directories("${PROJECT_SOURCE_DIR}/include/GearMaster")
 include_directories("${PROJECT_BINARY_DIR}/src")
 
 set(SOURCES
-    ${PROJECT_SOURCE_DIR}/src/hello.cpp
+    ${PROJECT_SOURCE_DIR}/src/main.cpp
     ${PROJECT_SOURCE_DIR}/src/gui/MainWindow.cpp
     ${PROJECT_SOURCE_DIR}/src/gui/ItemNavigator.cpp
     ${PROJECT_SOURCE_DIR}/src/gui/ItemView.cpp
