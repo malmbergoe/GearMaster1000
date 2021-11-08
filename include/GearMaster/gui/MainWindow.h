@@ -3,13 +3,23 @@
 
 #include <QMainWindow>
 #include <QApplication>
-class MainWindow : public QMainWindow {
+#include <QString>
 
+#include "gui/OpenInventory.h"
+
+class MainWindow : public QMainWindow {
+Q_OBJECT
+ 
  public:
   MainWindow(QWidget *parent = 0);
   void createNewDatabase();
   void openGearDatabase();
   void exit();
+  public slots:
+    void fetchInventoryFilename(InventoryFilename &filename);
+ private:
+  void loadStartDialog();
+  std::string inventoryFilename;
 };
 
 #endif

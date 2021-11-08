@@ -11,7 +11,7 @@
 #include <QPixmap>
 #include <QMessageBox>
 #include <stdlib.h>
-
+#include <iostream>
 MainWindow::MainWindow (QWidget *parent)
   : QMainWindow(parent) {
 
@@ -79,6 +79,11 @@ MainWindow::MainWindow (QWidget *parent)
 
 }
 
+void MainWindow::fetchInventoryFilename(InventoryFilename &filename){
+  this->inventoryFilename = filename.name;
+  std::cout << "I have recieved word that I should open an inventory called " << this->inventoryFilename << std::endl;
+}
+
 void MainWindow::openGearDatabase(){
   QMessageBox msgBox;
   msgBox.setText("Seems like you wanted to open an existing database!");
@@ -94,3 +99,4 @@ void MainWindow::createNewDatabase(){
 void MainWindow::exit(){
   QApplication::quit();
  }
+
