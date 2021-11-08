@@ -3,7 +3,7 @@
 #include <QLabel>
 
 #include "gui/OpenInventory.h"
-
+#include "models/Inventory.h"
 
 
 OpenInventory::OpenInventory (QWidget *parent)
@@ -37,8 +37,10 @@ OpenInventory::OpenInventory (QWidget *parent)
 };
 
 void OpenInventory::inventoryFilenameSet(){
-  this->inventoryFilename = {.name = "douglas"};
-  emit getInventoryFilename(this->inventoryFilename);
+  Inventory inventory {"sasha"};
+  //  this->inventoryFilename = {.name = "douglas"};
+  //  emit getInventoryFilename(this->inventoryFilename);
+  emit getInventoryFilename(inventory);
   emit accept();
 }
 

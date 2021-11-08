@@ -6,6 +6,7 @@
 #include <QString>
 
 #include "gui/OpenInventory.h"
+#include "models/Inventory.h"
 
 class MainWindow : public QMainWindow {
 Q_OBJECT
@@ -16,7 +17,7 @@ Q_OBJECT
   void openGearDatabase();
   void exit();
   public slots:
-    void fetchInventoryFilename(InventoryFilename &filename);
+    void fetchInventoryFilename(const Inventory &filename);
  private:
   void loadStartDialog();
   std::string inventoryFilename;

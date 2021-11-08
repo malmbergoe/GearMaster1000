@@ -79,8 +79,8 @@ MainWindow::MainWindow (QWidget *parent)
 
 }
 
-void MainWindow::fetchInventoryFilename(InventoryFilename &filename){
-  this->inventoryFilename = filename.name;
+void MainWindow::fetchInventoryFilename(const Inventory &filename){
+  this->inventoryFilename = filename.getFilename();
   std::cout << "I have recieved word that I should open an inventory called " << this->inventoryFilename << std::endl;
 }
 

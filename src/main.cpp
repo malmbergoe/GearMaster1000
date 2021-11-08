@@ -7,7 +7,7 @@
 
 #include "storage/StorageService.h"
 #include "gui/OpenInventory.h"
-
+#include "models/Inventory.h"
 
 int main (int argc, char **argv) {
   
@@ -26,7 +26,7 @@ int main (int argc, char **argv) {
   openInventory.open();
   QObject::connect(&openInventory, SIGNAL(rejected()), &gearmaster, SLOT(quit()));
   QObject::connect(&openInventory, SIGNAL(accepted()), &mainWindow, SLOT(show()));
-  QObject::connect(&openInventory, SIGNAL(getInventoryFilename(InventoryFilename &)), &mainWindow, SLOT(fetchInventoryFilename(InventoryFilename &)));
+  QObject::connect(&openInventory, SIGNAL(getInventoryFilename(const Inventory &)), &mainWindow, SLOT(fetchInventoryFilename(const Inventory &)));
 
   StorageService storage;
   storage.connect("awesome sauce with bananas and peanuts!!!!");

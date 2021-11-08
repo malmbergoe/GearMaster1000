@@ -18,6 +18,7 @@ set(SOURCES
     ${PROJECT_SOURCE_DIR}/src/gui/ItemNavigator.cpp
     ${PROJECT_SOURCE_DIR}/src/gui/ItemView.cpp
     ${PROJECT_SOURCE_DIR}/src/gui/OpenInventory.cpp
+    ${PROJECT_SOURCE_DIR}/src/models/Inventory.cpp
     ${PROJECT_SOURCE_DIR}/src/storage/StorageService.cpp
 )
     
@@ -26,6 +27,7 @@ set(HEADERS
     ${PROJECT_SOURCE_DIR}/include/GearMaster/gui/ItemNavigator.h
     ${PROJECT_SOURCE_DIR}/include/GearMaster/gui/ItemView.h
     ${PROJECT_SOURCE_DIR}/include/GearMaster/gui/OpenInventory.h
+    ${PROJECT_SOURCE_DIR}/include/GearMaster/models/Inventory.h
     ${PROJECT_SOURCE_DIR}/include/GearMaster/storage/StorageService.h
 )
 
