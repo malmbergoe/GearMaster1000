@@ -1,0 +1,93 @@
+PRAGMA foreign_keys = TRUE;
+
+/* this is the main table */
+CREATE TABLE items (
+  item_id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  weight INTEGER CHECK(weight >= 0),
+  long_description TEXT,
+  short_description TEXT,
+  aquired_date TEXT,
+  price INTEGER CHECK(price >= 0),
+  image BLOB,
+  brand TEXT,
+  size TEXT,
+  status TEXT
+);
+
+
+CREATE TABLE collections (
+  collection_id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE joinCollections (
+  child_collection INTEGER NOT NULL ,
+  parent_collection INTEGER NOT NULL,
+  CHECK(child_collection != parent_collection),
+  PRIMARY KEY (child_collection, parent_collection),
+  FOREIGN KEY (child_collection) REFERENCES collections(collection_id),
+  FOREIGN KEY (parent_collection) REFERENCES collections(collection_id)
+);
+
+CREATE TABLE joinCollectionItems (
+  collection_id INTEGER NOT NULL, 
+  item_id INTEGER NOT NULL,
+  PRIMARY KEY (collection_id, item_id),
+  FOREIGN KEY (collection_id) REFERENCES collections(collection_id),
+  FOREIGN KEY (item_id) REFERENCES items(item_id)
+);
+
+CREATE TABLE tags (
+  tag_id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE joinTagCollections (
+  collection_id INTEGER NOT NULL, 
+  tag_id INTEGER NOT NULL,
+  PRIMARY KEY (tag_id, collection_id),
+  FOREIGN KEY (collection_id) REFERENCES collections(collection_id),
+  FOREIGN KEY (tag_id) REFERENCES tags(tag_id)
+);
+
+CREATE TABLE joinTagItems (
+  tag_id INTEGER NOT NULL,
+  item_id INTEGER NOT NULL,
+  PRIMARY KEY (tag_id, item_id),
+  FOREIGN KEY (item_id) REFERENCES items(item_id),
+  FOREIGN KEY (tag_id) REFERENCES tags(tag_id)  
+);
+
+
+CREATE TABLE joinTagLogPosts (
+  tag_id INTEGER NOT NULL,
+  logpost_id INTEGER NOT NULL,
+  PRIMARY KEY (tag_id, logpost_id),
+  FOREIGN KEY (logpost_id) REFERENCES logPosts(logpost_id),
+  FOREIGN KEY (tag_id) REFERENCES tags(tag_id)  
+);
+
+
+CREATE TABLE logPosts (
+  logpost_id INTEGER PRIMARY KEY,
+  date TEXT,
+  message TEXT,
+  conditions TEXT,
+  temperature INTEGER,
+  collection_id,
+  FOREIGN KEY (collection_id) REFERENCES collections(collection_id)
+);
+
+CREATE TABLE logImage (
+  image_id INTEGER PRIMARY KEY,
+  image BLOB
+);
+
+CREATE TABLE joinLogPostImages (
+  logpost_id INTEGER NOT NULL,
+  image_id INTEGER NOT NULL,
+  PRIMARY KEY (logpost_id, image_id),
+  FOREIGN KEY (logpost_id) REFERENCES logPosts(logpost_id),
+  FOREIGN KEY (image_id) REFERENCES logImage(image_id)  
+);
