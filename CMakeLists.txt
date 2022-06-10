@@ -11,9 +11,9 @@ option(PACKAGE_TEST "Build unit tests" ON)
 if(PACKAGE_TEST)
   enable_testing()
   include(GoogleTest)
-  add_subdirectory(test)
+  add_subdirectory(test/cpp)
 endif()
 
-add_subdirectory(src)
+add_subdirectory(src/cpp)
 
 
